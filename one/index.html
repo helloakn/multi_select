@@ -27,10 +27,46 @@
             <option value="pepperoni">Pepperoni</option>
             <option value="onions">Onions</option>
         </select>
+        <table id="tblResult">
+            <thead>
+                 <tr>
+                    <th>Result</th>
+                </tr>
+            </thead>
+           
+            <tbody>
+                
+            </tbody>
+            
+        </table>
+        <button id="btnGetValues">Get Values</button>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#example-getting-started').multiselect();
+
+                $("#btnGetValues").click(function(){
+                    var brands = $('#example-getting-started option:selected');
+                    var selected = [];
+                    var tmpHtml = "";
+                    $(brands).each(function(index, brand){
+                        //selected.push([$(this).val()]);
+                        tmpHtml += "<tr><td> "+$(this).val() +" </td></tr>"
+                    });
+                    $("#tblResult tbody").html(tmpHtml);
+                    
+                });
             });
         </script>
+        <style>
+            .multiselect-selected-text{
+                color:green;
+            }
+            .multiselect{
+                background-color:#1000ff36;
+            }
+            .multiselect-container{
+                background-color:yellow;
+            }
+        </style>
     </body>
 </html>
